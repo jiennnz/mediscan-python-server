@@ -23,7 +23,12 @@ label_mapping = {0: 'Bacterial', 1: 'Normal', 2: 'Viral'}
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
-@app.route('/upload', methods=['POST'])
+@app.route('/')
+def hello():
+    hello = 'hello'
+    return hello
+
+@app.route('/diagnose', methods=['POST'])
 def classify_image():
     try:
         # Get the URL string of the image from the request
@@ -50,7 +55,7 @@ def classify_image():
 
         result = {
             'predicted_label': predicted_label,
-            'confidence': confidence_rounded
+            'confidence_level': confidence_rounded
         }
 
         return jsonify(result)

@@ -19,3 +19,4 @@ logs/
 
 # Dependency directories (if using package managers like pip)
 node_modules/
+myenv/
